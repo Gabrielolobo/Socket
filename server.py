@@ -28,12 +28,13 @@ def client_manager(addr, conn):
     connected = True
     while connected:
         msg_length = conn.recv(HEADER).decode(FORMAT) #Tells how long the message is.
-        msg_length = int(msg_length) #Converts to an integer
-        msg = conn.recv(msg_length).decode(FORMAT) #How many bytes per message.
-        if msg == DISCONNECT_MESSAGE:
-            connected = False
+        if msg_length:
+            msg_length = int(msg_length) #Converts to an integer
+            msg = conn.recv(msg_length).decode(FORMAT) #How many bytes per message.
+            if msg == DISCONNECT_MESSAGE:
+                connected = False
         
-        print(f"[{addr}] {msg}")
+            print(f"[{addr}] {msg}")
         
     conn.close()
 
