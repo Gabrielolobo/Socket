@@ -5,6 +5,7 @@ import threading
 PORT = 3030
 SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
+HEADER = 128 #No. of Bits
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
@@ -25,7 +26,7 @@ def client_manager(addr, conn):
 
     connected = True
     while connected:
-        msg = conn.recv()
+        msg_length = conn.recv(HEADER)
 
 print("[STARTING SERVER...]")
 start()
