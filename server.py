@@ -21,7 +21,11 @@ def start():
         print(f"[ACTIVE CONNECTIONS] {threading.activeCount() -1}")
 
 def client_manager(addr, conn):
-    pass
+    print(f"[NEW CONNECTION] {addr} is connected")
+
+    connected = True
+    while connected:
+        msg = conn.recv()
 
 print("[STARTING SERVER...]")
 start()
