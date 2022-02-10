@@ -13,7 +13,12 @@ server.bind(ADDR)
 def start():
     socket.listen()
     while True:
+        #Stores client's information.
         addr, conn = server.accept()
+        thread = threading.Thread(target=client_manager, args=(addr, conn))
+        thread.start()
+        #The ("number of threads" - 1) represents the number of connections to the server.
+        print(f"[ACTIVE CONNECTIONS] {threading.activeCount() -1}")
 
 def client_manager(addr, conn):
     pass
