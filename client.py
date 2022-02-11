@@ -20,8 +20,13 @@ def send(msg):
     send_length += b' ' * (HEADER - len(send_length))
     client.send(send_length)
     client.send(message)
+    print(client.recv(2048))
 
+input()
 send("Do or do not, there is no try.")
+input()
 send("SAY HELLO TO MY LITTLE FRIEND!")
+input()
 send("You broke my heart, Fredo... You broke my heart.")
+input()
 send(DISCONNECT_MESSAGE)

@@ -22,7 +22,7 @@ def client_manager(conn, addr):
             msg_length = int(msg_length) #Converts to an integer
             msg = conn.recv(msg_length).decode(FORMAT) #How many bytes per message.
             if msg == DISCONNECT_MESSAGE:
-                    connected = False
+                connected = False
         
             print(f"[{addr}] {msg}")
 
