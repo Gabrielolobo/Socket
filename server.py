@@ -7,7 +7,7 @@ SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 HEADER = 64 #No. of Bits
 FORMAT = 'utf-8'
-DISCONNECT_MESSAGE = "!QUIT!"
+DISCONNECT_MESSAGE = "!QUIT"
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
