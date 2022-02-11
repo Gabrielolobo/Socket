@@ -2,7 +2,7 @@ from http import client
 import socket
 
 
-HEADER = 128 #No. of Bits
+HEADER = 64 #No. of Bits
 SERVER = socket.gethostbyname(socket.gethostname())
 PORT = 3030
 ADDR = (SERVER, PORT)
